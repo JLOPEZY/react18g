@@ -36,3 +36,20 @@
     transform: rotate(360deg);
   }
 }
+
+.active {
+  color:#61dafb
+}
+
+.inactive {
+  color:white;
+}
+
+.square {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  width: 200px;
+  background-color:#61dafb;
+}
