@@ -8,9 +8,9 @@ import './App.css';
 
 
 function App() {
-  const [itemActive, setItemActive] = useState(null)
+  const [itemActive, setItemActive] = useState(null);
 
-  const isActive = (itemNumber) => itemNumber === itemActive
+  const isActive = (itemNumber) => itemNumber === itemActive;
 
   //local state
   //[0] = valor del state
@@ -71,19 +71,84 @@ function App() {
   // } 
   // const squareClass = isOn ? "square-on" : "square-off"
   // const squareText = isOn ? "ON" : "OFF"
+  const koders = [
+    {
+      firstName: "Luis",
+      lastName: "Vera",
+      age: 24,
+      gender: "m",
+      photoURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQm3RFDZM21teuCMFYx_AROjt-AzUwDBROFww&usqp=CAU",
+    },
+    {
+      firstName: "Nestor",
+      lastName: "Ramírez",
+      age: 40,
+      gender: "m",
+      photoURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQm3RFDZM21teuCMFYx_AROjt-AzUwDBROFww&usqp=CAU",
+    },
+    {
+      firstName: "David",
+      lastName: "Romero",
+      age: 28,
+      gender: "m",
+      photoURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQm3RFDZM21teuCMFYx_AROjt-AzUwDBROFww&usqp=CAU",
+    },
+    {
+      firstName: "Yusef",
+      lastName: "Lopéz",
+      age: 40,
+      gender: "m",
+      photoURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQm3RFDZM21teuCMFYx_AROjt-AzUwDBROFww&usqp=CAU",
+    },
+  ];
+  // const animals = ["parrot", "dog", "breaver", "cat"];
+  // const animalsUI = animals.map((animal, index) => (
+  //   <li key={index}>{animal}</li>
+  // ));
+  // console.log(animalsUI);
+
+  const kodersUi = koders.map(
+    ({ firstName, lastName, age, gender, photoURL }) => (
+      <div className="card-container">
+        <div className="card-image-container">
+          <img alt="profile" src={photoURL} className="card-image" />
+        </div>
+        <div className="card-content">
+          <div className="card-item-content">
+            <p className="title">Nombre</p>
+            <p>{firstName} {lastName}</p>
+          </div>
+          <div className="card-item-content">
+            <p className="title">Edad</p>
+            <p>{age}</p>
+          </div>
+          <div className="card-item-content">
+            <p className="title">Gender</p>
+            <p>{gender}</p>
+          </div>
+
+        </div>
+      </div>
+    ))
+
+
 
   return (
     <div className="App">
       <header className="App-header">
 
-        <ul>
+        {/* <ul>
           <li onClick={() => setItemActive(1)} className={`${isActive(1) ? 'active' : "inactive"}`}>Getting Started</li>
           <li onClick={() => setItemActive(2)} className={`${isActive(2) ? 'active' : "inactive"}`}>Add React to a Website</li>
           <li onClick={() => setItemActive(3)} className={`${isActive(3) ? 'active' : "inactive"}`}>Create a New React App</li>
           <li onClick={() => setItemActive(4)} className={`${isActive(4) ? 'active' : "inactive"}`}>CDN Links</li>
           <li onClick={() => setItemActive(5)} className={`${isActive(5) ? 'active' : "inactive"}`}>Release Channels</li>
 
-        </ul>
+        </ul> */}
+
+        {/* <ul>{animalsUI}</ul> */}
+
+        {kodersUi}
 
         {/* <Title text="Aaron"></Title>
 
@@ -118,10 +183,6 @@ function App() {
           <button onClick={() => setIsOn(false)}>OFF</button> */}
 
         {/* </div> */}
-
-
-
-
 
       </header>
     </div>
