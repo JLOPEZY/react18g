@@ -9,6 +9,8 @@ function App() {
   const [lastName, setLastName] = useState ("");
   const [age, setAge] = useState ("");
   const [gender, setGender] = useState ("");
+  const [photoURL, setPhotoURL] = useState ("");
+  const [amount, setAmount] = useState(null);
 
   const [koders,setKoders] = useState([ 
     {
@@ -79,6 +81,13 @@ function App() {
 
   console.log(koders, "KODERS");
 
+  const USD = 20.16;
+  const handleChangeAmount = ({ target: { value } }) => {
+    const newAmount = Number(value);
+    setAmount(newAmount);
+  };
+
+
   return (
     <div className="App">
       <div className="main-container">
@@ -104,6 +113,15 @@ function App() {
         />
         <button type="submit">Agregar Koder</button>
       </form>
+
+      <div>
+
+        <p className="title">
+          La cantidad en USD es ${!amount ? "0.00" : (amount / USD).toFixed(2)}
+        </p>
+        <input type="number" value={amount} onChange={handleChangeAmount} />
+
+      </div>
     </div>
   );
 }
