@@ -1,110 +1,28 @@
-// Components
-import Card from "./components/Card";
-
+import { Routes, Route, Link } from "react-router-dom";
 import "./App.css";
-import { useState } from "react";
+
+//Components
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Profile from "./pages/Profile";
 
 function App() {
-  const [firstName, setFirstName] = useState ("");
-  const [lastName, setLastName] = useState ("");
-  const [age, setAge] = useState ("");
-  const [gender, setGender] = useState ("");
-
-  const [koders,setKoders] = useState([ 
-    {
-      firstName: "Luis",
-      lastName: "Vera",
-      age: 24,
-      gender: "m",
-      photoURL: "https://sgame.etsisi.upm.es/pictures/18253.jpg?1621958969/",
-    },
-    {
-      firstName: "Nestor",
-      lastName: "Ramírez",
-      age: 40,
-      gender: "m",
-      photoURL: "https://sgame.etsisi.upm.es/pictures/18253.jpg?1621958969/",
-    },
-    {
-      firstName: "David",
-      lastName: "Romero",
-      age: 28,
-      gender: "m",
-      photoURL: "https://sgame.etsisi.upm.es/pictures/18253.jpg?1621958969/",
-    },
-    {
-      firstName: "Yusef",
-      lastName: "Lopéz",
-      age: 40,
-      gender: "f",
-      photoURL: "https://media4.giphy.com/media/5sYyfIMRcpJWNqdySh/giphy.gif",
-    },
-  ]);
-
-  const kodersUI = koders.map(
-    ({ firstName, lastName, age, gender, photoURL }, index) => (
-      <Card
-        key={index}
-        photoURL={photoURL}
-        firstName={firstName}
-        lastName={lastName}
-        age={age}
-        gender={gender}
-      />
-    )
-  );
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log("AGREGAR KODER");
-    const newKoders = [
-      ...koders,
-      {
-        firstName,
-        lastName,
-        age,
-        gender,
-        photoURL,
-      },
-    ];
-
-    setKoders(newKoders);
-
-    setFirstName("");
-    setLastName("");
-    setAge("");
-    setGender("");
-    setPhotoURL("");
-  };
-
-  console.log(koders, "KODERS");
-
   return (
     <div className="App">
-      <div className="main-container">
-        <div className="container">{kodersUI}</div>
-      </div>
-      <form onSubmit={handleSubmit}>
-        <input
-          value={firstName}
-          onChange={(event) => setFirstName(event.target.value)}
-        />
-        <input
-          value={lastName}
-          onChange={(event) => setLastName(event.target.value)}
-        />
-        <input value={age} onChange={(event) => setAge(event.target.value)} />
-        <input
-          value={gender}
-          onChange={(event) => setGender(event.target.value)}
-        />
-        <input
-          value={photoURL}
-          onChange={(event) => setPhotoURL(event.target.value)}
-        />
-        <button type="submit">Agregar Koder</button>
-      </form>
+      <nav>
+        <Link to="/">Home</Link>
+        <Link to="/about">About</Link>
+        <Link to="/profile">Profile</Link>
+      </nav>
+
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="about" element={<About />} />
+        <Route path="profile" element={<Profile />} />
+      </Routes>
     </div>
+    
   );
 }
 
