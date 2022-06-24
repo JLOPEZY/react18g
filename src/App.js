@@ -6,7 +6,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Profile from "./pages/Profile";
 import AppContainer from "./containers/AppContainer";
-import ProfileContainer from "./profile/ProfileContainer";
+import ProfileContainer from "./containers/profile/ProfileContainer";
 
 function App() {
   return (
@@ -19,14 +19,15 @@ function App() {
         <Route path="login" element={<p>Login</p>} />
         <Route path="signup" element={<p>Signup</p>} />
         <Route path="app" element={<AppContainer />}>
-          <Route index element={<Home />} />
-          <Route path="about" element={<About />} />
-          <Route path="profile" element={<Profile />} />
-            <Route path="profileContainer" element={<ProfileContainer />}>
-                <Route index element={<Home />} />
-                <Route path="edit" element={<p>Edit</p>} />
+            <Route index element={<Home />} />
+            <Route path="about" element={<About />} />
+              <Route path="profile" element={<ProfileContainer />} >
                 <Route path="detail" element={<p>Detail</p>} />
-            </Route>
+                <Route path="edit" element={<p>Edit</p>} />
+              </Route>
+
+            
+            
         </Route>
 
           
@@ -39,3 +40,9 @@ function App() {
 }
 
 export default App;
+
+{/* <Route path="profileContainer" element={<ProfileContainer />}>
+                <Route index element={<Home />} />
+                <Route path="edit" element={<p>Edit</p>} />
+                <Route path="detail" element={<p>Detail</p>} />
+            </Route> */}
